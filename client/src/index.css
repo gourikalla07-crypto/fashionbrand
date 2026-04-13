@@ -1,0 +1,174 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+
+
+  /* Golden & Black Premium Theme */
+  --color-accent-gold:  #D4AF37;       /* Metallic Gold */
+  --color-accent-bright:#FFD700;       /* Bright Gold */
+  --color-brand-muted:  #8A7139;       /* Muted Gold */
+  --color-brand-dark:   #000000;       /* Pure Black */
+}
+
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+
+  --gold-bg: #000000;
+  --gold-surface: #0a0a0a;
+  --gold-card: #141414;
+  --gold-border: rgba(212, 175, 55, 0.2);
+  --gold-accent: #D4AF37;
+  --gold-highlight: #FFD700;
+  --gold-text: #D4AF37;
+  --gold-muted: #8A7139;
+}
+
+/* Force dark mode always on for this theme */
+html {
+  @apply bg-[#000000];
+}
+
+
+body {
+  margin: 0;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #000000;
+  color: white;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+
+.dark body {
+  background: #000000;
+  color: white;
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0008;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#D4AF37, #A67C00);
+  border-radius: 999px;
+}
+
+
+/* Glassmorphism - Crimson Edition */
+.glass {
+  background: rgba(70, 0, 13, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(196, 0, 106, 0.2);
+}
+
+.dark .glass {
+  background: rgba(50, 0, 18, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(196, 0, 106, 0.15);
+}
+
+/* Card Surface */
+.surface {
+  background: rgba(50, 0, 18, 0.7);
+  border: 1px solid rgba(114, 1, 55, 0.3);
+}
+
+/* Gold Glow Effects */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Text Gradient */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37, #FFD700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* Animations */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.1);
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.btn-premium:hover::after {
+  transform: translateY(0);
+}
+
+/* Scroll Animation */
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  display: flex;
+  width: max-content;
+  animation: scroll-x 30s linear infinite;
+}
+
+.animate-scroll-x:hover {
+  animation-play-state: paused;
+}
+
+/* Ambient background glow orbs */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+.orb-animate {
+  animation: float-orb 12s ease-in-out infinite;
+}
+
+/* Input styling for dark theme */
+input, textarea, select {
+  background: rgba(50, 0, 18, 0.6) !important;
+  border-color: rgba(114, 1, 55, 0.4) !important;
+  color: #f5d0dc !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(155, 92, 112, 0.7) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(196, 0, 106, 0.7) !important;
+  box-shadow: 0 0 0 3px rgba(196, 0, 106, 0.15) !important;
+  outline: none !important;
+}
+
