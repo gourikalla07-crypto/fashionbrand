@@ -58,7 +58,7 @@ const Shop = () => {
   useEffect(() => {
     if (searchQuery && filteredProducts.length === 0) {
       setIsSearchingExternal(true);
-      fetch(`http://localhost:5000/api/search?q=${searchQuery}`)
+      fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/search?q=${searchQuery}`)
         .then(res => res.json())
         .then(data => {
           if (data.source === 'external') {

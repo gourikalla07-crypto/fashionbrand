@@ -40,7 +40,7 @@ const Checkout = () => {
 
     try {
       const stripe = await getStripe();
-      const response = await axios.post('http://localhost:5000/api/create-checkout-session', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/create-checkout-session`, {
         items: cart,
         customerEmail: formData.email || user?.email,
       });
